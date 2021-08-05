@@ -32,10 +32,10 @@ bot.on('message', msg => {
       msg.reply('Please tag a valid user!');
     }
   }
-  else if(msg.content.startsWith('!msg')){
+  else if(msg.content.startsWith('!confess')){
     if (msg.content) {
-      const botmsg=msg.content.replace("!msg","");
       msg.delete();
+      const botmsg=msg.content.replace("!confess","");
       msg.channel.send(botmsg);
     } else {
       msg.reply('Please enter a valid message!');
