@@ -4,6 +4,7 @@ const bot = new Discord.Client();
 
 config();
 const TOKEN = process.env.TOKEN;
+console.log(TOKEN)
 bot.login(TOKEN);
 
 
@@ -29,6 +30,15 @@ bot.on('message', msg => {
       msg.channel.send(`${taggedUser.username} is super adorable :)`);
     } else {
       msg.reply('Please tag a valid user!');
+    }
+  }
+  else if(msg.content.startsWith('!msg')){
+    if (msg.content) {
+      const botmsg=msg.content.replace("!msg","");
+      msg.delete();
+      msg.channel.send(botmsg);
+    } else {
+      msg.reply('Please enter a valid message!');
     }
   }
 });
